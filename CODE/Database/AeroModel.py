@@ -5,9 +5,9 @@ import pyodbc
 class AeroModel: 
     def __init__(self,aircraftID,regimeID,degree):
         self.connectID = pyodbc.connect(
-                "Driver={SQL Server};"          # driver for MS SQL
-                "Server=localhost\\SQLEXPRESS;" # instance name
-                "Database=Flight Simulator;"         # Table Name 
+                "Driver={SQL Server};"          # Driver for MS SQL
+                "Server=localhost\\SQLEXPRESS;" # Instance Name
+                "Database=Flight Simulator;"         # Database Name 
                 "Trusted_Connection=yes;"     
         )
         self.aircraftID = aircraftID
@@ -251,21 +251,21 @@ class AeroModel:
 
     def plotHybridFit(self, coeff):
 
-        # 1️⃣ --- Extract AoA and chosen coefficient (e.g. CL/CD/CM) ---
+        # --- Extract AoA and chosen coefficient
         aoa = np.array(self.aoa)
-        coeffVal = np.array(getattr(self, coeff))  # e.g. self.cl
-
-        # 2️⃣ --- Compute regression + corrected values at data points ---
+        coeffVal = np.array(getattr(self, coeff))  
+        
+        #--- Compute regression + corrected values at data points ---
         regression_at_points = [self.regressionPredict(alpha, coeff) for alpha in aoa]
         corrected_at_points = [
             self.regressionPredict(alpha, coeff) + self.errorcorrect(alpha, coeff)
             for alpha in aoa
         ]
 
-        # 3️⃣ --- Compute residuals (measured - regression) ---
+        # --- Compute residuals (measured - regression) ---
         residuals_plot = coeffVal - np.array(regression_at_points)
 
-        # 4️⃣ --- Generate smooth AoA range for continuous curve ---
+        #  --- Generate smooth AoA range for continuous curve ---
         aoa_smooth = np.linspace(min(aoa), max(aoa), 200)
         regression_smooth = [self.regressionPredict(alpha, coeff) for alpha in aoa_smooth]
         corrected_smooth = [
@@ -273,7 +273,7 @@ class AeroModel:
             for alpha in aoa_smooth
         ]
 
-        # 5️⃣ --- Plot setup ---
+        #  --- Plot setup ---
         plt.figure(figsize=(8, 5))
 
         # Regression and corrected curves
@@ -296,7 +296,6 @@ class AeroModel:
             label='Residual Correction'
         )
 
-        # 6️⃣ --- Styling ---
         plt.xlabel("Angle of Attack (°)")
         plt.ylabel(f"{coeff.upper()} Coefficient")
         plt.title("Hybrid Regression–Interpolation Model with Residual Corrections")

@@ -1,12 +1,32 @@
 import numpy as np 
 import matplotlib.pyplot as plt
+import math 
+
+
 
 
 
 #aoa = [-2, 0, 2, 4, 6, 8, 10]
 #cl = [-0.2, 0.0, 0.2, 0.4, 0.7, 0.9, 1.0]
-aoa = [0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,0.1,0.11,0.12]
-cl = [350,670,1100,1600,2000,2400,2900,3400,2900,4400,5000,5200]
+initialaoa = [0.15,0.16,0.17,0.18,0.19,0.20,0.21,0.22,0.23,0.24,0.25,0.26,0.27]
+aoa = []
+initialcl = [7200,7000,6900,6400,6300,5700,5400,5100,4700,4500,4200,4000,3800]
+cl = [] 
+
+for num in initialaoa: 
+    print(num)
+    num = math.log(num)
+    aoa.append(num)
+
+for i in initialcl:
+    print(i)
+    num = math.log(i)
+    cl.append(num)
+
+
+xaxis = "Radius"
+yaxis = "Voltage"
+title = "Radius & Voltage"
 #aoa = np.linspace(-10, 10, 12)  # evenly spaced angles
 #cl = np.random.uniform(-1, 1, len(aoa))  
 
@@ -76,7 +96,7 @@ xty = Xt @ y
 
 a = inv @ xty 
 
-print(a)
+print("coefficient",a)
 
 
 def predict(x,a): 
@@ -167,9 +187,9 @@ plt.errorbar(
 )
 
 # --- Styling ---
-plt.xlabel("Angle of Attack (°)")
-plt.ylabel("Lift Coefficient CL")
-plt.title("Hybrid Regression–Interpolation Model with Residual Corrections")
+plt.xlabel(xaxis)
+plt.ylabel(yaxis)
+plt.title(title)
 plt.legend()
 plt.grid(True)
 plt.show()
