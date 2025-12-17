@@ -64,7 +64,7 @@ class ISA:
         # Error check to ensure the elevation value required does not lie outside the remains of the check
         if elevation <elevation_low or elevation > elevation_high:
             return ("interval",low,high)
-           #return pos, pos-1 
+           
 
         # Estimating the position of the element 
         pos = low + int((elevation-elevation_low)*(high-low)/(elevation_high-elevation_low))
@@ -73,7 +73,7 @@ class ISA:
 
         if current_elevation == elevation:
             return ("exact",pos) 
-        elif elevation < current_elevation:
+        elif elevation < current_elevation:         
             # If the target is smaller than the current estimate, the program begins searching the left side 
             return self.interpolationsearch(elevation,low,pos-1) # Recursive Call 
             # The new high position is set as the current position -1 
@@ -95,48 +95,54 @@ class ISA:
 
         # If the searching algorithm returns a tuple with first element "interval"
         # It means that interpolation is required as the required elevation is not present in the dataset
-        # The function returns the closest elevation values 
+        # The function returns the closest elevation values which then can be interpolated 
         if index[0] == "interval": # type: ignore
             l,h = index[1], index[2] # type: ignore
+            # ALL elevation details for adjacent rows where the required elevation lies between 
             row1 = self.data[l]
             row2 = self.data[h] # type: ignore
             
             elev1, elev2 = row1[0], row2[1]
+            # Calculates the fraction of the interval the required elevation is in 
             fractionofInterval = (elevation - elev1)/(elev2 - elev1)
-
+            
+            # New array to store all interpolated values 
             interpolatedRow = [elevation]
 
+            # Calculating the new value for each element by interating through the array 
             for i in range(1, len(row1)):
                 value = row1[i] + fractionofInterval * (row2[i]-row1[i])
                 interpolatedRow.append(value)
             return interpolatedRow
         else: 
+            # If "exact" is stated in the result from the searching function 
+            # Then the exact elevation details can be returned 
             return self.data[index[1]] # type: ignore
 
  
     def temperature(self,elevation):
         temp = self.elevationDetails(elevation)
-        return temp[1] # type: ignore
+        return temp[1] 
     
     def pressure(self,elevation):
         pressure = self.elevationDetails(elevation)
-        return pressure[2] #type: ignore
+        return pressure[2] 
     
     def density(self,elevation):
         density = self.elevationDetails(elevation)
-        return density[3] #type: ignore
+        return (density[3]*1.225) # Multiplying relative density by the actual air density value to get real density 
     
     def visosity(self,elevation):
         visosity = self.elevationDetails(elevation)
-        return visosity[4] #type: ignore
+        return visosity[4] 
     
     def thermalConductivity(self,elevation):
         conductivity = self.elevationDetails(elevation)
-        return conductivity[5] #type: ignore
+        return conductivity[5] 
     
     def soundSpeed(self,elevation):
         speed = self.elevationDetails(elevation)
-        return speed[6] #type: ignore
+        return speed[6] 
     
 
 
@@ -145,7 +151,7 @@ isa = ISA(2)
 #print(row1)
 #print(row2)
 
-print(isa.temperature(2888.1))
+print(isa.density(2888.1))
 #print(isa.temperature(50000))
 #print(isa.temperature(28000))
 #print(isa.thermalConductivity(2000))

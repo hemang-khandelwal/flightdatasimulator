@@ -218,37 +218,6 @@ class AeroModel:
 
         return final_val
     
-    def refreshCache(self):
-        # Reload data from database
-        self.loadData()
-
-        # Recalculate regression for new degree
-        self.a_cl = self.regression("cl")
-        self.a_cd = self.regression("cd")
-        self.a_cm = self.regression("cm")
-
-        # Recalculate residuals
-        self.residualCL = []
-        self.residualCD = []
-        self.residualCM = []
-
-        for index in range(len(self.aoa)):
-            aoa_val = self.aoa[index]
-
-            # CL residual
-            pred_cl = self.coeffCalc(aoa_val, self.a_cl)
-            self.residualCL.append(self.cl[index] - pred_cl)
-
-            # CD residual
-            pred_cd = self.coeffCalc(aoa_val, self.a_cd)
-            self.residualCD.append(self.cd[index] - pred_cd)
-
-            # CM residual
-            pred_cm = self.coeffCalc(aoa_val, self.a_cm)
-            self.residualCM.append(self.cm[index] - pred_cm)
-
-        print("Cache refreshed for degree:", self.degree)
-
     def plotHybridFit(self, coeff):
 
         # --- Extract AoA and chosen coefficient
