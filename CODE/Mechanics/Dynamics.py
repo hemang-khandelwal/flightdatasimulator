@@ -2,17 +2,24 @@ import numpy as np
 # Space State Vector: [ u, w, q, theta, x, z ]
 
 class AircraftDynamics:
-    def __init__(self, environment, aeroModel, forces): # Pass in Aircraft Module in later 
+    def __init__(self, environment, aeroModel, forces, controls): # Pass in Aircraft Module in later 
         # Passing the objects into the class 
+    ######## Get these aircraft specific values from Aircraft Object later 
         #self.aircraft = aircraft 
+        self.surfaceArea = 2 ## CHANGE, call this from aircraft database structure
+        self.chord = 34 ### CHANGE, call this from aircraft database structure 
+        self.cmDeltaE = -1.28
+        self.cdDeltaE = 0.060
+        self.clDeltaE = 0.430
+    ##############
         self.environment = environment
         self.aeroModel = aeroModel
         self.forces = forces 
-
+        self.controls = controls
         self.stateVector = []
 
 
-    def stateDerivatives(self,t, state, controls): 
+    def stateDerivatives(self,t, state): 
         # Unpacking the SSV (State Space Vector)
         u, w, q, theta, x, z = state 
         # Theta = pitch 
@@ -22,25 +29,26 @@ class AircraftDynamics:
 
         aoa = theta - gamma
 
-        cl = self.aeroModel.aeroval(aoa,"cl")
-        cd = self.aeroModel.aeroval(aoa,"cd")
-        cm = self.aeroModel.aeroval(aoa,"cm")
-
         L,D,M = self.forces.aeroForces(
             self.environment.density(z), # The vertical height(Z) is the elevation 
             resultantV,
             aoa
         )
+        ## Adjusting for control input 
+        dynamicPressure = 0.5*self.environment.density(z)*((resultantV)**2)*self.surfaceArea
 
-        #T = controls.thrust 
-        T = 1
+        L = L + dynamicPressure*(self.clDeltaE * self.controls.elevator())
+        D = D + dynamicPressure* (self.cdDeltaE * self.controls.elevator())
+        M = M + dynamicPressure*self.chord*(self.cmDeltaE * self.controls.elevator())
 
+        T = self.controls.thrust()
+    
         ## Resolving Forces 
         horiz = (self.forces.resolveForce(aoa,L,"sin")) -(self.forces.resolveForce(aoa,D,"cos")) + T 
-        vert = -(self.forces.resolveForce(aoa,D,"sin")) -(self.forces.resolveForce(aoa,L,"cos"))  
+        vert = (self.forces.resolveForce(aoa,L,"cos"))  -(self.forces.resolveForce(aoa,D,"sin")) 
 
-        m = 12323
-        Iy = 212
+        m = 1157
+        Iy = 1346
         g = 9.81
 
         theta_dot = q
@@ -48,7 +56,7 @@ class AircraftDynamics:
         ## Equations of Motion 
         ## ACCELERATION
         u_dot = (horiz / m) - g*np.sin(theta) + w*q
-        w_dot = (vert / m) + g*np.cos(theta) - u*q
+        w_dot = (vert / m) - g*np.cos(theta) - u*q
         q_dot = M / Iy
 
         ## Kinematic Definitions 
