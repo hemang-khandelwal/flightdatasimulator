@@ -116,7 +116,7 @@ class TrimSolver:
         w_dot, q_dot = self.equationsOfMotion(aoa,e,u,w,z,q)
         iterations = 1
 
-        while abs(w_dot) > self.toleration or abs(q_dot) > self.toleration and iterations < self.maxIterations:
+        while (abs(w_dot) > self.toleration or abs(q_dot) > self.toleration) and iterations < self.maxIterations:
             
             # Where w_dot & q_dot = f1,f2 respectively 
             w_dot, q_dot = self.equationsOfMotion(aoa,e,u,w,z,q) 
@@ -140,6 +140,10 @@ class TrimSolver:
             w_dot, q_dot = self.equationsOfMotion(aoa, e, u, w, z, q)
 
             iterations += 1
+        
+        return aoa, e 
+    
+
 
 
 
