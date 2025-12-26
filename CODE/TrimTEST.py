@@ -15,16 +15,18 @@ environment = ISA(1)
 dynamics = AircraftDynamics(environment,plane,forces,controls)
 rk4 = RK4(dynamics)
 controls = Controls() 
-trimSolver = TrimSolver(0.005,0.005,1e-6,100,plane, environment, forces, controls)
+trimSolver = TrimSolver(0.005,0.005,1e-6,1000,plane, environment, forces, controls)
 
 aoa, e = trimSolver.newtonRapshon(
-    alpha0=0.05,     # ~3°
-    e0=0.0,          # small elevator
-    u=100.0,         # forward speed
-    w=0.0,           # steady level
-    z=1000.0,        # altitude
+    alpha0=10,     # ~3°
+    e0=10.0,          # small elevator
+    u=1,         # forward speed
+    w=0,           # steady level
+    z=10,        # altitude
     q=0.0
 )
+for a in range(-5, 15):
+    print(a, plane.aeroval(a, "cm"))
 
 print(aoa,e)
 

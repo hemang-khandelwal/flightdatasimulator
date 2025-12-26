@@ -218,6 +218,20 @@ class AeroModel:
 
         return final_val
     
+    def maxValue(self,coeff):
+        coeff = getattr(self,coeff)
+        for i, value in  enumerate (self.aoa): 
+            if value>0:
+                break
+        prevCl = coeff[i] # type: ignore
+        for index in range(i,len(coeff)-1):  
+            if prevCl > coeff[index]:
+                return self.aoa[index-1], prevCl
+            else: 
+                prevCl = coeff[index] 
+             
+             
+    
     def plotHybridFit(self, coeff):
 
         # --- Extract AoA and chosen coefficient

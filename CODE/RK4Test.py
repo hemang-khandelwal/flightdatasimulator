@@ -24,7 +24,7 @@ state = np.array([
     0.0,      # q     (rad/s)
     0,     # theta (rad)
     0.0,      # x     (m)
-    500   # z     (m)
+    30000  # z     (m)
 ])
 
 

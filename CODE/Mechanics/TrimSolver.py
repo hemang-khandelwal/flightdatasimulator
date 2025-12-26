@@ -10,7 +10,7 @@ class TrimSolver:
         self.aeroModel = aeroModel
         self.environment = environment
         self.forces = forces 
-        self.surfaceArea = 2 ## CHANGE, call this from aircraft database structure
+        self.surfaceArea = 16 ## CHANGE, call this from aircraft database structure
         self.chord = 34 ### CHANGE, call this from aircraft database structure 
         self.cmDeltaE = -1.28
         self.cdDeltaE = 0.060
@@ -25,8 +25,8 @@ class TrimSolver:
          # Gamma = Flight Path Angle 
         resultantV = np.sqrt(u**2 + w**2)
         gamma = np.arctan2(w,u) # Gamma = Flight Path Angle 
-
-        theta = aoa + gamma 
+        
+        
 
         L,D,M = self.forces.aeroForces(
             self.environment.density(z), # The vertical height(Z) is the elevation 
@@ -48,6 +48,15 @@ class TrimSolver:
         Iy = 1346
         g = 9.81
 
+        theta = (aoa*np.pi/180)+ gamma 
+
+       # print(
+            #"aoa(deg):", aoa,
+            #"gamma(rad):", gamma,
+            #"theta(deg):", theta*180/np.pi
+           # )
+
+        
         ## Equations of Motion 
         ## ACCELERATION 
         w_dot = (vert / m) - g*np.cos(theta) - u*q
@@ -117,7 +126,7 @@ class TrimSolver:
         iterations = 1
 
         while (abs(w_dot) > self.toleration or abs(q_dot) > self.toleration) and iterations < self.maxIterations:
-            
+
             # Where w_dot & q_dot = f1,f2 respectively 
             w_dot, q_dot = self.equationsOfMotion(aoa,e,u,w,z,q) 
 
@@ -126,10 +135,10 @@ class TrimSolver:
 
             detJ = J[0,0]*J[1,1] - J[0,1]*J[1,0] # Finding the determinant of the Matrix 
 
-            # Calculating Newton Raphson Correction temrs 
+            # Calculating Newton Raphson Correction terms
             # Thus JF​(xn​)(xn+1​−xn​)=−F(xn​)
             # Where (xn+1-xn) = Changeinx
-            # Where x = [w_dot,q_dot]
+            # Where x = [aoa,e]
     
             changeInAOA = (-J[1,1]*w_dot + J[0,1]*q_dot) / detJ
             changeInElevator   = ( J[1,0]*w_dot - J[0,0]*q_dot) / detJ
@@ -137,7 +146,11 @@ class TrimSolver:
             aoa += changeInAOA
             e   += changeInElevator
 
-            w_dot, q_dot = self.equationsOfMotion(aoa, e, u, w, z, q)
+            if e < -28:
+                e = -28
+            elif e > 23:
+                e = 23
+
 
             iterations += 1
         

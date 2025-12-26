@@ -16,8 +16,11 @@ print("Lift Force", l)
 lhoriz = forces.resolveForce(aoa,l,"cos")
 print("Lift Horizontal Component", lhoriz)
 
-plane.plotHybridFit("cl") 
+plane.plotHybridFit("cm") 
 
+a = plane.maxValue("cm")
+
+print(a)
 
 # Currently it prints out the Coeff value for a specific aoa and then it spits out the actual force value 
 # Afterwards it resolve the force in the correct direction 
