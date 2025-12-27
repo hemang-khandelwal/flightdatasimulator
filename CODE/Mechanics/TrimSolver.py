@@ -2,7 +2,7 @@ import numpy as np
 
 # Finds the conditions required for steady-level flight 
 class TrimSolver:
-    def __init__(self,dalpha, de, toleration, maxIterations, aeroModel, environment, forces, controls):
+    def __init__(self,dalpha, de, toleration, maxIterations, aeroModel, environment, forces, controls, stallMonitor):
         self.dalpha = dalpha  
         self.toleration = toleration
         self.maxIterations = maxIterations
@@ -10,6 +10,7 @@ class TrimSolver:
         self.aeroModel = aeroModel
         self.environment = environment
         self.forces = forces 
+        self.stallMonitor = stallMonitor
         self.surfaceArea = 16 ## CHANGE, call this from aircraft database structure
         self.chord = 34 ### CHANGE, call this from aircraft database structure 
         self.cmDeltaE = -1.28
@@ -117,10 +118,12 @@ class TrimSolver:
                 self.dq_dot_de(aoa, e, u, w, z, q)
             ]
         ])
-    
+
+
     def newtonRapshon(self,alpha0,e0,u,w,z,q):
         aoa = alpha0
         e = e0 
+        resultantV = np.sqrt(u**2 + w**2)
 
         w_dot, q_dot = self.equationsOfMotion(aoa,e,u,w,z,q)
         iterations = 1
@@ -145,17 +148,42 @@ class TrimSolver:
 
             aoa += changeInAOA
             e   += changeInElevator
-
-            if e < -28:
-                e = -28
-            elif e > 23:
-                e = 23
-
-
             iterations += 1
+
+        if self.stallMonitor.isStall(aoa,z,resultantV) == True: 
+            return False 
+        elif e <-28: 
+            return False 
+        elif e>23: 
+            return False 
+
+        return float(aoa),float(e) 
+
+    def multiStartTrimSolve(self,alpha0Array,e0Array,tolerance, u,w,z,q):
+        i = 0 
+        allSoloutions = []
+        while i < len(alpha0Array)-1:
+            result = self.newtonRapshon(alpha0Array[i],e0Array[i],u,w,z,q)
+            if result == False: 
+                return None  
+            else: 
+                allSoloutions.append(result)
+            i+= 1 
         
-        return aoa, e 
-    
+        # Removing any duplicate soloutions 
+        for a in range (0,len(allSoloutions)-2): # Stop searching from the second-last element of the array 
+            for b in range(len(allSoloutions)-1,a,-1): # Iterating backwards to prevent i
+                if (abs(allSoloutions[a][0] - allSoloutions[b][0]) < tolerance) and (abs(allSoloutions[a][1] - allSoloutions[b][1]) < tolerance):
+                    allSoloutions.pop(b)
+        
+        return allSoloutions
+
+                
+
+        
+
+
+
 
 
 

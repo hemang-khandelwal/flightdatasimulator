@@ -20,10 +20,10 @@ dt = 0.1
 
 state = np.array([
     0,     # u     (m/s)
-    0.0,      # w     (m/s)
+    0,      # w     (m/s)
     0.0,      # q     (rad/s)
     0,     # theta (rad)
-    0.0,      # x     (m)
+    0,      # x     (m)
     30000  # z     (m)
 ])
 

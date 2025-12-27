@@ -16,7 +16,7 @@ print("Lift Force", l)
 lhoriz = forces.resolveForce(aoa,l,"cos")
 print("Lift Horizontal Component", lhoriz)
 
-plane.plotHybridFit("cm") 
+plane.plotHybridFit("cl") 
 
 a = plane.maxValue("cm")
 

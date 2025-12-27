@@ -224,7 +224,7 @@ class AeroModel:
             if value>0:
                 break
         prevCl = coeff[i] # type: ignore
-        for index in range(i,len(coeff)-1):  
+        for index in range(i,len(coeff)-1):   # type: ignore
             if prevCl > coeff[index]:
                 return self.aoa[index-1], prevCl
             else: 

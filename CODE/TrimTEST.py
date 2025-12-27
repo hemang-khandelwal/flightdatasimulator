@@ -6,6 +6,7 @@ from Mechanics.Integrator import RK4
 from Mechanics.Dynamics import AircraftDynamics
 from Mechanics.Controls import Controls
 from Mechanics.TrimSolver import TrimSolver
+from Perfomance.StallMonitor import Stall
 
 controls = Controls()
 isa = ISA(1)
@@ -15,19 +16,20 @@ environment = ISA(1)
 dynamics = AircraftDynamics(environment,plane,forces,controls)
 rk4 = RK4(dynamics)
 controls = Controls() 
-trimSolver = TrimSolver(0.005,0.005,1e-6,1000,plane, environment, forces, controls)
+stallMonitor = Stall(17,0.95,plane,environment,forces)
+trimSolver = TrimSolver(0.005,0.005,1e-6,1000,plane, environment, forces, controls, stallMonitor)
 
-aoa, e = trimSolver.newtonRapshon(
-    alpha0=10,     # ~3°
-    e0=10.0,          # small elevator
-    u=1,         # forward speed
-    w=0,           # steady level
-    z=10,        # altitude
+solutions = trimSolver.multiStartTrimSolve(
+    alpha0Array = [-5, -2, 0, 2, 5, 8, 12],
+    e0Array = [-15, -10, -5, 0, 5, 10, 15],
+    tolerance=2,
+    u=1000,
+    w=0,
+    z=30000,
     q=0.0
 )
+print(solutions)
+
+
 for a in range(-5, 15):
     print(a, plane.aeroval(a, "cm"))
-
-print(aoa,e)
-
-
