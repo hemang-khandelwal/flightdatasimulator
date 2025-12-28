@@ -16,20 +16,30 @@ environment = ISA(1)
 dynamics = AircraftDynamics(environment,plane,forces,controls)
 rk4 = RK4(dynamics)
 controls = Controls() 
-stallMonitor = Stall(17,0.95,plane,environment,forces)
-trimSolver = TrimSolver(0.005,0.005,1e-6,1000,plane, environment, forces, controls, stallMonitor)
+stallMonitor = Stall(np.deg2rad(17),0.95,plane,environment,forces)
+trimSolver = TrimSolver(0.005,0.005,1e-6,10000,plane, environment, forces, controls, stallMonitor)
+
+alpha0 = np.deg2rad(np.array([-5, -2, 0, 2, 5, 8, 12]))
+e0 = np.deg2rad(np.array([-15, -10, -5, 0, 5, 10, 15]))
 
 solutions = trimSolver.multiStartTrimSolve(
-    alpha0Array = [-5, -2, 0, 2, 5, 8, 12],
-    e0Array = [-15, -10, -5, 0, 5, 10, 15],
+    alpha0Array = alpha0,
+    e0Array = e0,
     tolerance=2,
-    u=1000,
+    u=65,
+    w=0,
+    z=1000,
+    q=0.0
+)
+
+aoa = trimSolver.newtonRapshon(
+    alpha0= np.deg2rad(5),
+    e0 = np.deg2rad(4),
+    u=1212,
     w=0,
     z=30000,
     q=0.0
-)
+) # type: ignore
 print(solutions)
 
-
-for a in range(-5, 15):
-    print(a, plane.aeroval(a, "cm"))
+print (aoa)

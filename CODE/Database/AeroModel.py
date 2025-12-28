@@ -80,7 +80,8 @@ class AeroModel:
         self.cm.clear()
 
         for row in cursor:
-            self.aoa.append(row[0])
+            # Database stores Alpha in degrees; convert once to radians for internal consistency
+            self.aoa.append(np.deg2rad(row[0]))
             self.cl.append(row[1])
             self.cd.append(row[2])
             self.cm.append(row[3])
@@ -279,7 +280,7 @@ class AeroModel:
             label='Residual Correction'
         )
 
-        plt.xlabel("Angle of Attack (°)")
+        plt.xlabel("Angle of Attack (rad)")
         plt.ylabel(f"{coeff.upper()} Coefficient")
         plt.title("Hybrid Regression–Interpolation Model with Residual Corrections")
         plt.legend()

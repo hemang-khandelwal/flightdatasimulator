@@ -12,7 +12,7 @@ class TrimSolver:
         self.forces = forces 
         self.stallMonitor = stallMonitor
         self.surfaceArea = 16 ## CHANGE, call this from aircraft database structure
-        self.chord = 34 ### CHANGE, call this from aircraft database structure 
+        self.chord = 1.12 ### CHANGE, call this from aircraft database structure 
         self.cmDeltaE = -1.28
         self.cdDeltaE = 0.060
         self.clDeltaE = 0.430
@@ -32,7 +32,8 @@ class TrimSolver:
         L,D,M = self.forces.aeroForces(
             self.environment.density(z), # The vertical height(Z) is the elevation 
             resultantV,
-            aoa
+            aoa,
+            False
         )
 
         ## Adding control effect to the coefficient values 
@@ -45,11 +46,11 @@ class TrimSolver:
         ## Resolving for Vertical Forces 
         vert = (self.forces.resolveForce(aoa,L,"cos"))  -(self.forces.resolveForce(aoa,D,"sin")) 
 
-        m = 1157
+        m = 770
         Iy = 1346
         g = 9.81
 
-        theta = (aoa*np.pi/180)+ gamma 
+        theta = aoa + gamma 
 
        # print(
             #"aoa(deg):", aoa,
@@ -152,9 +153,9 @@ class TrimSolver:
 
         if self.stallMonitor.isStall(aoa,z,resultantV) == True: 
             return False 
-        elif e <-28: 
+        elif e <np.deg2rad(-28): 
             return False 
-        elif e>23: 
+        elif e>np.deg2rad(23): 
             return False 
 
         return float(aoa),float(e) 
@@ -172,7 +173,7 @@ class TrimSolver:
         
         # Removing any duplicate soloutions 
         for a in range (0,len(allSoloutions)-2): # Stop searching from the second-last element of the array 
-            for b in range(len(allSoloutions)-1,a,-1): # Iterating backwards to prevent i
+            for b in range(len(allSoloutions)-1, a ,-1): # Iterating backwards to prevent i
                 if (abs(allSoloutions[a][0] - allSoloutions[b][0]) < tolerance) and (abs(allSoloutions[a][1] - allSoloutions[b][1]) < tolerance):
                     allSoloutions.pop(b)
         

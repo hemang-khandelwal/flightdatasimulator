@@ -6,6 +6,7 @@ class Controls:
         self._thrust = thrust
 
     def elevator(self):
+        #return self._elevator
         return self._elevator
 
     def thrust(self):

@@ -16,19 +16,26 @@ rk4 = RK4(dynamics)
 controls = Controls() 
 
 # Space State Vector: [ u, w, q, theta, x, z ]
-dt = 0.1
+dt = 0.001
+#gamma_trim = np.atan2(0, 1000)
+#theta_trim = (1.8221176122649494 *(np.pi)/180 ) + gamma_trim
+
+V = 70          # m/s (C172 cruise-ish)
+alpha = 0.05   # ~3 degrees
+u = V*np.cos(alpha)
+w = V*np.sin(alpha)
 
 state = np.array([
-    0,     # u     (m/s)
-    0,      # w     (m/s)
+    u,     # u     (m/s)
+    w,      # w     (m/s)
     0.0,      # q     (rad/s)
-    0,     # theta (rad)
+    alpha,     # theta (rad)
     0,      # x     (m)
-    30000  # z     (m)
+    3000  # z     (m)
 ])
 
 
-totalTime = 10 # seconds 
+totalTime = 2 # seconds 
 
 noOfSteps = int(totalTime / dt)
 

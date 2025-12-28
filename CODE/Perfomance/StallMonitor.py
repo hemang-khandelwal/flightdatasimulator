@@ -6,7 +6,7 @@ class Stall:
         self.environment = environment
         self.forces = forces
         self.CLMAX = self.aeroModel.maxValue("cl")[1]
-        self.mass = 1233 # Get from Aircraft Info Table
+        self.mass = 770 # Get from Aircraft Info Table
      
 
     def isStall(self,aoa,elevation,resultantV):
@@ -16,7 +16,7 @@ class Stall:
         elif self.aeroModel.aeroval(aoa,"cl") >= self.margin*self.CLMAX:
             return True 
         # Checks if The Current Lift Force is Less than the Weight of the aircraft, as otherwise aircraft is falling
-        elif self.forces.aeroForces(self.environment.density(elevation),resultantV,aoa)[0] < self.mass*9.81: 
+        elif self.forces.aeroForces(self.environment.density(elevation),resultantV,aoa,False)[0] < self.mass*9.81: 
             return True 
         else: 
             return False 
