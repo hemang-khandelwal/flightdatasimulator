@@ -16,6 +16,7 @@ class TrimSolver:
         self.cmDeltaE = -1.28
         self.cdDeltaE = 0.060
         self.clDeltaE = 0.430
+        self.cmq = -12.4
     ##############
         self.environment = environment
         self.aeroModel = aeroModel
@@ -27,7 +28,7 @@ class TrimSolver:
         resultantV = np.sqrt(u**2 + w**2)
         gamma = np.arctan2(w,u) # Gamma = Flight Path Angle 
         
-        
+    
 
         L,D,M = self.forces.aeroForces(
             self.environment.density(z), # The vertical height(Z) is the elevation 
@@ -39,9 +40,17 @@ class TrimSolver:
         ## Adding control effect to the coefficient values 
         dynamicPressure = 0.5*self.environment.density(z)*((resultantV)**2)*self.surfaceArea
 
-        L = L + dynamicPressure*(self.clDeltaE * e)
-        D = D + dynamicPressure* (self.cdDeltaE * e)
-        M = M + dynamicPressure*self.chord*(self.cmDeltaE * e)
+        # Positive elevator input should be nose-up: invert sign to match coefficient convention
+        e_eff = -e
+        L = L + dynamicPressure*(self.clDeltaE * e_eff)
+        D = D + dynamicPressure* (self.cdDeltaE * e_eff)
+        M = M + dynamicPressure*self.chord*(self.cmDeltaE * e_eff)
+
+        ## ADDING PITCH DAMPENING ######
+        q_hat = q * self.chord / (2 * resultantV)
+        M = M + dynamicPressure * self.chord * (self.cmq * q_hat)
+        ########
+
 
         ## Resolving for Vertical Forces 
         vert = (self.forces.resolveForce(aoa,L,"cos"))  -(self.forces.resolveForce(aoa,D,"sin")) 
@@ -130,7 +139,8 @@ class TrimSolver:
         iterations = 1
 
         while (abs(w_dot) > self.toleration or abs(q_dot) > self.toleration) and iterations < self.maxIterations:
-
+            
+            print("Currently testing", aoa,e)
             # Where w_dot & q_dot = f1,f2 respectively 
             w_dot, q_dot = self.equationsOfMotion(aoa,e,u,w,z,q) 
 
@@ -149,6 +159,10 @@ class TrimSolver:
 
             aoa += changeInAOA
             e   += changeInElevator
+            #### COME BACK TO THIS LATER AND LOOK 
+            e = np.clip(e, np.deg2rad(-25), np.deg2rad(25)) 
+            ######### 
+            
             iterations += 1
 
         if self.stallMonitor.isStall(aoa,z,resultantV) == True: 
@@ -163,6 +177,23 @@ class TrimSolver:
     def multiStartTrimSolve(self,alpha0Array,e0Array,tolerance, u,w,z,q):
         i = 0 
         allSoloutions = []
+
+        
+        while i < len(alpha0Array):
+            print("CURRENT INPUT PAIR",alpha0Array[i], e0Array[i])
+            result = self.newtonRapshon(alpha0Array[i], e0Array[i], u, w, z, q)
+
+        # CHANGE 1: do NOT abort on failure
+            if result != False and result is not None:
+                allSoloutions.append(result)
+
+            i += 1
+
+        # CHANGE 2: only return None if NOTHING converged
+        if len(allSoloutions) == 0:
+            return None
+        
+
         while i < len(alpha0Array)-1:
             result = self.newtonRapshon(alpha0Array[i],e0Array[i],u,w,z,q)
             if result == False: 
