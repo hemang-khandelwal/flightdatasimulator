@@ -11,3 +11,18 @@ class Controls:
 
     def thrust(self):
         return self._thrust
+
+
+
+class ControlSchedule:
+    def __init__(self):
+        self.events = []
+
+    def add_event(self, start, end, elevator, thrust):
+        self.events.append((start, end, elevator, thrust))
+
+    def get_inputs(self, t):
+        for start, end, e, thr in self.events:
+            if start <= t <= end:
+                return e, thr
+        return 0.0, 0.0

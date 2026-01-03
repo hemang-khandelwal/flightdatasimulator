@@ -1,0 +1,35 @@
+import numpy as np
+from Sensors.KalmanFilter import Kalman4d
+
+
+kf = Kalman4d(
+            initialStateEstimate = [50, -2, 0.1, 1000], # Initial Guess of the real state 
+            initialUncertainityEstimate = np.eye(4) , # The uncertainity from that initial guess [4x4 Matrix]
+            processNoiseUncertainity = np.eye(4)*0., # How much the dynamics model is trusted 
+            sensorNoiseUncertainity = np.eye(4)*0.5 # How noisy the filter believes the sensors are 
+    )
+print(kf.stateEstimate)
+print(kf.estimateUncertainity)
+
+kf.predict(timeStep=0.1)
+
+sensorMeasurements = [
+    48.0,    # u_measured
+    -1.5,    # w_measured
+    0.12,    # theta_measured
+    995.0    # z_measured
+]
+
+print("Before update:")
+print("State estimate:\n", kf.stateEstimate)
+print("Uncertainty:\n", kf.estimateUncertainity)
+
+residual = kf.update(sensorMeasurements)
+
+print("\nAfter update:")
+print("State estimate:\n", kf.stateEstimate)
+print("Uncertainty:\n", kf.estimateUncertainity)
+
+print("\nResidual (innovation):")
+print(residual)
+

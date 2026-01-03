@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod
 import numpy as np 
 # Space State Vector: [ u, w, q, theta, x, z ]
 
+""" Sensor is an Abstract Class """
+""" Sensor cannot be instantiated on it's own and serves as a blueprint for other classes """
 class Sensor(ABC): 
     def __init__(self,intensity, updateFrequency,noiseEnabled, distributionType): 
         self.intensity = intensity
@@ -24,6 +26,7 @@ class Sensor(ABC):
         elif self.distributionType.upper() == "UNIFORM": 
             return np.random.uniform(-self.intensity,self.intensity)
         else: 
+            # Input argument of correct type but inappropriate value
             raise ValueError(f"Unknown noise distribution: {self.distributionType}")
 
     ## EVERY SENSOR MUST DEFINE HOW IT MEASURES TRUE STATE 
@@ -31,13 +34,16 @@ class Sensor(ABC):
     ## Used for good practice  
     @abstractmethod
     def _trueState(self,trueState, stateDerivative):
-        """Return the noise-free reading for this sensor."""
+        #Return the noise-free reading for this sensor
         raise NotImplementedError
-        
+    
+
+    ## Returns reading from sensor 
     def measure(self,trueState, stateDerivative, dt): 
         self.timeElapsedSinceLastReading += dt 
         if self.timeElapsedSinceLastReading >= self.updateTimePeriod: 
-            trueValue = self._trueState(trueState, stateDerivative) # type: ignore
+            # Retrieves the true value from the Dynamics Model (State Space Vecotr or State Derivatives)
+            trueValue = self._trueState(trueState, stateDerivative) 
             self.timeElapsedSinceLastReading = 0 
             noise = self._noise()
             self.lastReading = trueValue + noise 
@@ -74,14 +80,31 @@ class Accelerometer(Sensor):
 
     def _trueState(self, trueState, stateDerivative):
         if stateDerivative is None:
-            raise ValueError("stateDerivative required for accelerometer") # Error handling 
+            raise ValueError("StateDerivative required for accelerometer") # Exception handling 
         # Uses vertical acceleration from the state derivative
         return stateDerivative[1]
 
 
- ### Sensor Management ### 
+"""### Sensor Manager ### """
+# An easy Interface to collate all the sensors
 
-class SensorMangement:
-    def __init__(self) -> None:
-        pass   
+class SensorManager:
+    def __init__(self):
+        self.sensors = {} # Dictionary Stores all the sensors 
+
+    # Creating the Dictionary of Sensors 
+    def addSensor(self, name, sensor):
+        self.sensors[name] = sensor 
+        # sensor is an object which is instantiated 
+
+    def allSensorReadings(self,trueState,stateDerivative, dt):
+        measurements = {} 
+        for name, sensor in self.sensors.items():
+            measurements[name] = sensor.measure(trueState,stateDerivative,dt)
+        return measurements
+
+    
+
+    
+
 

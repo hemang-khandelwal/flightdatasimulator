@@ -1,4 +1,4 @@
-from Database.AeroModel import AeroModel
+from Database.BaseAeroModel import AeroModel
 from Mechanics.Forces import Forces
 from Database.Environment import ISA
 import numpy as np
