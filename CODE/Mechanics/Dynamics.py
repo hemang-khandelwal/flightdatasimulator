@@ -40,7 +40,7 @@ class AircraftDynamics:
         dynamicPressure = 0.5*self.environment.density(z)*((resultantV)**2)*self.surfaceArea
 
         # Positive elevator input should be nose-up: invert sign to match coefficient convention
-        e_eff = -self.controls.elevator()
+        e_eff = -self.controls.elevator(t)
         L = L + dynamicPressure*(self.clDeltaE * e_eff)
         D = D + dynamicPressure* (self.cdDeltaE * e_eff)
         M = M + dynamicPressure*self.chord*(self.cmDeltaE * e_eff)
@@ -51,7 +51,7 @@ class AircraftDynamics:
         M = M + dynamicPressure * self.chord * (self.cmq * q_hat)
 
         ###################################
-        T = self.controls.thrust()
+        T = self.controls.thrust(t)
     
         ## Resolving Forces 
         horiz = (self.forces.resolveForce(aoa,L,"sin")) -(self.forces.resolveForce(aoa,D,"cos")) + T 

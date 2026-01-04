@@ -1,16 +1,28 @@
 import numpy as np 
 
 class Controls:
-    def __init__(self, elevator=0.0, thrust=0.0):
-        self._elevator = elevator
-        self._thrust = thrust
+    def __init__(self,mode):
+        self.mode = mode
 
-    def elevator(self):
-        #return self._elevator
-        return self._elevator
+        ## Manual Forced Controls 
+        self.manualElevator = 0.0 
+        self.manualThrust = 0.0
+        self.schedule = ControlSchedule()
 
-    def thrust(self):
-        return self._thrust
+    def elevator(self,t):
+        if self.mode == "scheduled":
+            return self.schedule.getInputs(t)[0]
+        else: 
+            return self.manualElevator
+
+    def thrust(self,t):
+        if self.mode == "scheduled":
+            return self.schedule.getInputs(t)[1]
+        else: 
+            return self.manualThrust
+    
+    def getInputs(self,t):
+        return 
 
 
 
@@ -18,11 +30,27 @@ class ControlSchedule:
     def __init__(self):
         self.events = []
 
-    def add_event(self, start, end, elevator, thrust):
-        self.events.append((start, end, elevator, thrust))
+    # Storing a control action 
+    # Each item in the list one event 
+    def addEvent(self, start, end, elevator, thrust):
+        self.events.append({
+            "TimeStart" : start,
+            "TimeEnd" : end, 
+            "Elevator" : elevator,
+            "Thrust" : thrust 
+        })
 
-    def get_inputs(self, t):
-        for start, end, e, thr in self.events:
-            if start <= t <= end:
-                return e, thr
-        return 0.0, 0.0
+    def clearEvents(self):
+        # Remove all scheduled events while keeping the same schedule instance
+        self.events.clear()
+
+    "Returns what the controls should be at a given time"
+    def getInputs(self, t):
+        elevator = 0.0
+        thrust = 0.0
+        for event in self.events: 
+            # Allows overriding of event        
+            if event["TimeStart"] <= t <= event["TimeEnd"]:
+                elevator = event["Elevator"]
+                thrust = event["Thrust"]
+        return elevator, thrust 
