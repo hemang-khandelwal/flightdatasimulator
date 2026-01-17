@@ -64,7 +64,7 @@ class BlendedAeroModel:
             postStall = self._postStallCD(alpha)
         elif coeff == "cm":
             preStall = self.baseAero.aeroval(alpha,"cm")
-            postStall = self._postStallCD(alpha)
+            postStall = self._postStallCM(alpha)
         else: 
             return ValueError("Unknown coefficient")
         

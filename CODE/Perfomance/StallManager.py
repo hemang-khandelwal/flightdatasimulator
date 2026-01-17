@@ -7,7 +7,13 @@ class Stall:
         self.aeroModel = aeroModel
         self.environment = environment
         self.forces = forces
-        self.CLMAX = self.aeroModel.maxValue("cl")[1]
+        # Prefer a dedicated maxValue if available; otherwise fall back to the base model
+        if hasattr(aeroModel, "maxValue"):
+            self.CLMAX = aeroModel.maxValue("cl")[1]
+        elif hasattr(aeroModel, "baseAero") and hasattr(aeroModel.baseAero, "maxValue"):
+            self.CLMAX = aeroModel.baseAero.maxValue("cl")[1]  # type: ignore[attr-defined]
+        else:
+            raise AttributeError("Provided aero model does not expose maxValue('cl')")
         self.mass = 770 # Get from Aircraft Info Table
      
     ## Useful for independent Stall Testing 
@@ -36,13 +42,21 @@ class Stall:
         aoa = theta - gamma
         resultantV = np.sqrt(u**2 + w**2)
 
-        if aoa >= self.criticalAOA: # Checks if current aoa is above critical angle 
+        # Check against critical AoA
+        if aoa >= self.criticalAOA:
             return True
-        # Checks if current Lift Coefficient is in promiximity of Max CL (Second Returned value from function aeroModel.maxValue)
-      
-    
-        
 
+        # Near-CLmax condition
+        if self.aeroModel.aeroval(aoa, "cl") >= self.margin * self.CLMAX:
+            return True
 
+        # Lift shortfall against weight
+        lift, _, _ = self.forces.aeroForces(
+            self.environment.density(elevation), resultantV, aoa, False
+        )
+        if lift < self.mass * 9.81:
+            return True
+
+        return False
 
 

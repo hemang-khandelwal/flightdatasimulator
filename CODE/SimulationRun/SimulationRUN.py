@@ -1,13 +1,24 @@
-import numpy as np 
+import sys
+from pathlib import Path
+
+import numpy as np
+
+# Ensure project root is on sys.path when run as a script
+BASE_DIR = Path(__file__).resolve().parent.parent
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
+
 from SimulationRun.SimInfo import SimInfo
 from SimulationRun.SimEngine import SimEngine
-
-from SimulationRun.SimModules import SimControls
-from SimulationRun.SimModules import SimDynamics
-from SimulationRun.SimModules import SimKalmanFilter
-from SimulationRun.SimModules import SimSensors
-from SimulationRun.SimModules import SimStall
-from SimulationRun.SimModules import SimLogger
+from SimulationRun.SimModules import (
+    SimControls,
+    SimDynamics,
+    SimKalmanFilter,
+    SimLogger,
+    SimSensors,
+    SimStall,
+    SimTruthMeasurement,
+)
 
 class SimulationRun:
     @ staticmethod
@@ -15,12 +26,18 @@ class SimulationRun:
     def create(config,controls,integrator,sensors,kalman,stall):
         dt = config["dt"]
         initialState = np.array(config["initialState"],dtype= float)
+        # The Kalman filter tracks a reduced state [u, w, theta, z]
+        kalman_state = (
+            initialState[[0, 1, 3, 5]] if initialState.size >= 6 else initialState.copy()
+        )
 
         ctx = SimInfo(
             t = 0.0,
             dt= dt,
             trueState = initialState,
-            stateEstimate = initialState.copy()
+            stateEstimate = kalman_state,
+            stateDerivative=None,
+            measurement=None
         )
 
         log = [] 
@@ -30,19 +47,15 @@ class SimulationRun:
         modules.append(SimControls(controls))
         modules.append(SimDynamics(integrator))
 
-        # If there are no sensors present the measurement equals the truth so the Kalman can still run 
-        if sensors is not None: 
+        # Sensors / measurement source
+        if sensors is not None:
             modules.append(SimSensors(sensors))
-        else: 
-            ctx.measurement =  ctx.trueState.copy()
-        
-        # This ensures the sensors always runs before the Kalman. 
-        # If there are no sensors present then ctx.measurement is already set 
-        if kalman is not None: 
+        else:
+            modules.append(SimTruthMeasurement())
+
+        # Kalman runs after measurement producer
+        if kalman is not None:
             modules.append(SimKalmanFilter(kalman))
-        else: 
-            # If no Kalman, the estimate just tracks the truth 
-            pass 
 
         if stall is not None: 
             modules.append(SimStall(stall))
