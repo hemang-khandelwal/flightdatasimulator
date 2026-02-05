@@ -1,0 +1,6 @@
+digraph "classes_perf" {
+rankdir=BT
+charset="utf-8"
+"Perfomance.BlendedAeroModel.BlendedAeroModel" [color="black", fontcolor="black", label=<{BlendedAeroModel|alphaCritical<br ALIGN="LEFT"/>baseAero<br ALIGN="LEFT"/>blendWidth<br ALIGN="LEFT"/>criticalCd<br ALIGN="LEFT"/>criticalCl<br ALIGN="LEFT"/>criticalCm<br ALIGN="LEFT"/>decayConstant<br ALIGN="LEFT"/>|aeroval(alpha, coeff)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"Perfomance.StallManager.Stall" [color="black", fontcolor="black", label=<{Stall|CLMAX<br ALIGN="LEFT"/>aeroModel<br ALIGN="LEFT"/>criticalAOA<br ALIGN="LEFT"/>environment<br ALIGN="LEFT"/>forces<br ALIGN="LEFT"/>margin<br ALIGN="LEFT"/>mass : int<br ALIGN="LEFT"/>|isStall(aoa, elevation, resultantV)<br ALIGN="LEFT"/>isStateStall(state)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+}

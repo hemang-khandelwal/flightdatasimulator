@@ -1,0 +1,25 @@
+digraph "classes_simrun" {
+rankdir=BT
+charset="utf-8"
+"SimulationRun.SimModules.SimControls" [color="black", fontcolor="black", label=<{SimControls|controls<br ALIGN="LEFT"/>|step(ctx: SimInfo)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"SimulationRun.SimModules.SimDynamics" [color="black", fontcolor="black", label=<{SimDynamics|integrator<br ALIGN="LEFT"/>|step(ctx: SimInfo)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"SimulationRun.SimEngine.SimEngine" [color="black", fontcolor="black", label=<{SimEngine|ctx<br ALIGN="LEFT"/>log : list<br ALIGN="LEFT"/>modules : List[SimModule]<br ALIGN="LEFT"/>|run(timeEnd: float): None<br ALIGN="LEFT"/>step(): None<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"SimulationRun.SimInfo.SimInfo" [color="black", fontcolor="black", label=<{SimInfo|converged : bool<br ALIGN="LEFT"/>dt : float<br ALIGN="LEFT"/>elevator : float<br ALIGN="LEFT"/>measurement : Optional[Any]<br ALIGN="LEFT"/>metaData : Dict[str, Any]<br ALIGN="LEFT"/>stalled : bool<br ALIGN="LEFT"/>stateDerivative : Optional[np.ndarray]<br ALIGN="LEFT"/>stateEstimate : ndarray<br ALIGN="LEFT"/>t : float<br ALIGN="LEFT"/>thrust : float<br ALIGN="LEFT"/>trueState : ndarray<br ALIGN="LEFT"/>|}>, shape="record", style="solid"];
+"SimulationRun.SimModules.SimKalmanFilter" [color="black", fontcolor="black", label=<{SimKalmanFilter|kalman<br ALIGN="LEFT"/>|initialise(ctx: SimInfo): None<br ALIGN="LEFT"/>step(ctx: SimInfo)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"SimulationRun.SimModules.SimLogger" [color="black", fontcolor="black", label=<{SimLogger|logList<br ALIGN="LEFT"/>|step(ctx: SimInfo)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"SimulationRun.SimModules.SimModule" [color="black", fontcolor="black", label=<{SimModule|<br ALIGN="LEFT"/>|initialise(ctx: SimInfo): None<br ALIGN="LEFT"/><I>step</I>(ctx: SimInfo): None<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"SimulationRun.SimModules.SimSensors" [color="black", fontcolor="black", label=<{SimSensors|sensors<br ALIGN="LEFT"/>|step(ctx: SimInfo)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"SimulationRun.SimModules.SimStall" [color="black", fontcolor="black", label=<{SimStall|stall<br ALIGN="LEFT"/>|step(ctx: SimInfo)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"SimulationRun.SimModules.SimTruthMeasurement" [color="black", fontcolor="black", label=<{SimTruthMeasurement|<br ALIGN="LEFT"/>|step(ctx: SimInfo): None<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"SimulationRun.SimulationBuilder.SimulationBuilder" [color="black", fontcolor="black", label=<{SimulationBuilder|<br ALIGN="LEFT"/>|build(config)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"SimulationRun.SimulationRUN.SimulationRun" [color="black", fontcolor="black", label=<{SimulationRun|<br ALIGN="LEFT"/>|create(config, controls, integrator, sensors, kalman, stall)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"SimulationRun.SimModules.SimControls" -> "SimulationRun.SimModules.SimModule" [arrowhead="empty", arrowtail="none"];
+"SimulationRun.SimModules.SimDynamics" -> "SimulationRun.SimModules.SimModule" [arrowhead="empty", arrowtail="none"];
+"SimulationRun.SimModules.SimKalmanFilter" -> "SimulationRun.SimModules.SimModule" [arrowhead="empty", arrowtail="none"];
+"SimulationRun.SimModules.SimLogger" -> "SimulationRun.SimModules.SimModule" [arrowhead="empty", arrowtail="none"];
+"SimulationRun.SimModules.SimSensors" -> "SimulationRun.SimModules.SimModule" [arrowhead="empty", arrowtail="none"];
+"SimulationRun.SimModules.SimStall" -> "SimulationRun.SimModules.SimModule" [arrowhead="empty", arrowtail="none"];
+"SimulationRun.SimModules.SimTruthMeasurement" -> "SimulationRun.SimModules.SimModule" [arrowhead="empty", arrowtail="none"];
+"SimulationRun.SimInfo.SimInfo" -> "SimulationRun.SimEngine.SimEngine" [arrowhead="odiamond", arrowtail="none", fontcolor="green", label="ctx", style="solid"];
+"SimulationRun.SimModules.SimModule" -> "SimulationRun.SimEngine.SimEngine" [arrowhead="odiamond", arrowtail="none", fontcolor="green", label="modules", style="solid"];
+}

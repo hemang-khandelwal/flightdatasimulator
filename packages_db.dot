@@ -1,0 +1,9 @@
+digraph "packages_db" {
+rankdir=BT
+charset="utf-8"
+"Database" [color="black", label=<Database>, shape="box", style="solid"];
+"Database.BaseAeroModel" [color="black", label=<Database.BaseAeroModel>, shape="box", style="solid"];
+"Database.Environment" [color="black", label=<Database.Environment>, shape="box", style="solid"];
+"Database.manager" [color="black", label=<Database.manager>, shape="box", style="solid"];
+"Database.vandermondematrixbuilder" [color="black", label=<Database.vandermondematrixbuilder>, shape="box", style="solid"];
+}

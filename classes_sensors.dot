@@ -1,0 +1,15 @@
+digraph "classes_sensors" {
+rankdir=BT
+charset="utf-8"
+"Sensors.Sensors.Accelerometer" [color="black", fontcolor="black", label=<{Accelerometer|<br ALIGN="LEFT"/>|}>, shape="record", style="solid"];
+"Sensors.Sensors.Altimeter" [color="black", fontcolor="black", label=<{Altimeter|<br ALIGN="LEFT"/>|}>, shape="record", style="solid"];
+"Sensors.Sensors.AttitudeSensor" [color="black", fontcolor="black", label=<{AttitudeSensor|<br ALIGN="LEFT"/>|}>, shape="record", style="solid"];
+"Sensors.KalmanFilter.Kalman4d" [color="black", fontcolor="black", label=<{Kalman4d|estimateUncertainity : ndarray<br ALIGN="LEFT"/>identity : ndarray<br ALIGN="LEFT"/>kalmanResiduals : list<br ALIGN="LEFT"/>modelUncertainity : ndarray<br ALIGN="LEFT"/>sensorUncertainity : ndarray<br ALIGN="LEFT"/>stateEstimate : ndarray<br ALIGN="LEFT"/>|predict(timeStep)<br ALIGN="LEFT"/>update(sensorMeasurements)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"Sensors.Sensors.PitotTube" [color="black", fontcolor="black", label=<{PitotTube|<br ALIGN="LEFT"/>|}>, shape="record", style="solid"];
+"Sensors.Sensors.Sensor" [color="black", fontcolor="black", label=<{Sensor|distributionType<br ALIGN="LEFT"/>intensity<br ALIGN="LEFT"/>lastReading : int<br ALIGN="LEFT"/>noiseEnabled<br ALIGN="LEFT"/>timeElapsedSinceLastReading : int<br ALIGN="LEFT"/>updateFrequency<br ALIGN="LEFT"/>updateTimePeriod<br ALIGN="LEFT"/>|measure(trueState, stateDerivative, dt)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"Sensors.Sensors.SensorManager" [color="black", fontcolor="black", label=<{SensorManager|sensors : dict<br ALIGN="LEFT"/>|addSensor(name, sensor)<br ALIGN="LEFT"/>allSensorReadings(trueState, stateDerivative, dt)<br ALIGN="LEFT"/>}>, shape="record", style="solid"];
+"Sensors.Sensors.Accelerometer" -> "Sensors.Sensors.Sensor" [arrowhead="empty", arrowtail="none"];
+"Sensors.Sensors.Altimeter" -> "Sensors.Sensors.Sensor" [arrowhead="empty", arrowtail="none"];
+"Sensors.Sensors.AttitudeSensor" -> "Sensors.Sensors.Sensor" [arrowhead="empty", arrowtail="none"];
+"Sensors.Sensors.PitotTube" -> "Sensors.Sensors.Sensor" [arrowhead="empty", arrowtail="none"];
+}

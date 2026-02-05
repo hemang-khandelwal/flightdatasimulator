@@ -1,0 +1,16 @@
+digraph "packages_simrun" {
+rankdir=BT
+charset="utf-8"
+"SimulationRun" [color="black", label=<SimulationRun>, shape="box", style="solid"];
+"SimulationRun.SimEngine" [color="black", label=<SimulationRun.SimEngine>, shape="box", style="solid"];
+"SimulationRun.SimInfo" [color="black", label=<SimulationRun.SimInfo>, shape="box", style="solid"];
+"SimulationRun.SimModules" [color="black", label=<SimulationRun.SimModules>, shape="box", style="solid"];
+"SimulationRun.SimulationBuilder" [color="black", label=<SimulationRun.SimulationBuilder>, shape="box", style="solid"];
+"SimulationRun.SimulationRUN" [color="black", label=<SimulationRun.SimulationRUN>, shape="box", style="solid"];
+"SimulationRun.SimEngine" -> "SimulationRun.SimInfo" [arrowhead="open", arrowtail="none"];
+"SimulationRun.SimEngine" -> "SimulationRun.SimModules" [arrowhead="open", arrowtail="none"];
+"SimulationRun.SimModules" -> "SimulationRun.SimInfo" [arrowhead="open", arrowtail="none"];
+"SimulationRun.SimulationRUN" -> "SimulationRun.SimEngine" [arrowhead="open", arrowtail="none"];
+"SimulationRun.SimulationRUN" -> "SimulationRun.SimInfo" [arrowhead="open", arrowtail="none"];
+"SimulationRun.SimulationRUN" -> "SimulationRun.SimModules" [arrowhead="open", arrowtail="none"];
+}

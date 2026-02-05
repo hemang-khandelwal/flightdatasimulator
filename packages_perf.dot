@@ -1,0 +1,7 @@
+digraph "packages_perf" {
+rankdir=BT
+charset="utf-8"
+"Perfomance" [color="black", label=<Perfomance>, shape="box", style="solid"];
+"Perfomance.BlendedAeroModel" [color="black", label=<Perfomance.BlendedAeroModel>, shape="box", style="solid"];
+"Perfomance.StallManager" [color="black", label=<Perfomance.StallManager>, shape="box", style="solid"];
+}

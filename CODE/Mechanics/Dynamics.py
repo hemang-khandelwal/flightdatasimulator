@@ -73,19 +73,7 @@ class AircraftDynamics:
         # Velocity 
         x_dot = u*np.cos(theta) - w*np.sin(theta)
         z_dot = u*np.sin(theta) + w*np.cos(theta)
-
-#        print("===== TRIM DIAGNOSTIC =====")
- #       print(f"Airspeed V        : {resultantV:8.3f} m/s")
-  #      print(f"Angle of attack α : {np.rad2deg(aoa):8.3f} deg")
-   #     print(f"Pitch angle θ     : {np.rad2deg(theta):8.3f} deg")
-    #    print(f"Elevator δe       : {np.rad2deg(self.controls.elevator()):8.3f} deg")
-     #   print()
-     #   print(f"Lift L            : {L:8.2f} N")
-      #  print(f"Weight W          : {m*g:8.2f} N")
-       # print(f"Vertical residual : {vert - m*g:8.2f} N")
-       # print()
-       # print(f"Pitch moment M    : {M:8.3f} N·m")
-       # print("============================")
+        
         return np.array([u_dot,w_dot,q_dot,theta_dot,x_dot,z_dot],dtype=float)
     
     

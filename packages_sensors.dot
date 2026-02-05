@@ -1,0 +1,7 @@
+digraph "packages_sensors" {
+rankdir=BT
+charset="utf-8"
+"Sensors" [color="black", label=<Sensors>, shape="box", style="solid"];
+"Sensors.KalmanFilter" [color="black", label=<Sensors.KalmanFilter>, shape="box", style="solid"];
+"Sensors.Sensors" [color="black", label=<Sensors.Sensors>, shape="box", style="solid"];
+}

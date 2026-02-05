@@ -1,0 +1,6 @@
+digraph "packages_ui" {
+rankdir=BT
+charset="utf-8"
+"UserInterface" [color="black", label=<UserInterface>, shape="box", style="solid"];
+"UserInterface.App" [color="black", label=<UserInterface.App>, shape="box", style="solid"];
+}

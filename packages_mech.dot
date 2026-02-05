@@ -1,0 +1,10 @@
+digraph "packages_mech" {
+rankdir=BT
+charset="utf-8"
+"Mechanics" [color="black", label=<Mechanics>, shape="box", style="solid"];
+"Mechanics.Controls" [color="black", label=<Mechanics.Controls>, shape="box", style="solid"];
+"Mechanics.Dynamics" [color="black", label=<Mechanics.Dynamics>, shape="box", style="solid"];
+"Mechanics.Forces" [color="black", label=<Mechanics.Forces>, shape="box", style="solid"];
+"Mechanics.Integrator" [color="black", label=<Mechanics.Integrator>, shape="box", style="solid"];
+"Mechanics.TrimSolver" [color="black", label=<Mechanics.TrimSolver>, shape="box", style="solid"];
+}

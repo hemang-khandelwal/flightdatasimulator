@@ -1,0 +1,14 @@
+digraph "packages_tests" {
+rankdir=BT
+charset="utf-8"
+"UnitTesting" [color="black", label=<UnitTesting>, shape="box", style="solid"];
+"UnitTesting.ControlsTest" [color="black", label=<UnitTesting.ControlsTest>, shape="box", style="solid"];
+"UnitTesting.MAIN1" [color="black", label=<UnitTesting.MAIN1>, shape="box", style="solid"];
+"UnitTesting.RK4Test" [color="black", label=<UnitTesting.RK4Test>, shape="box", style="solid"];
+"UnitTesting.SensorNoiseTest" [color="black", label=<UnitTesting.SensorNoiseTest>, shape="box", style="solid"];
+"UnitTesting.SensorTestWFakeDynamics" [color="black", label=<UnitTesting.SensorTestWFakeDynamics>, shape="box", style="solid"];
+"UnitTesting.TrimTEST" [color="black", label=<UnitTesting.TrimTEST>, shape="box", style="solid"];
+"UnitTesting.config_template" [color="black", label=<UnitTesting.config_template>, shape="box", style="solid"];
+"UnitTesting.main" [color="black", label=<UnitTesting.main>, shape="box", style="solid"];
+"UnitTesting.MAIN1" -> "UnitTesting.config_template" [arrowhead="open", arrowtail="none"];
+}
