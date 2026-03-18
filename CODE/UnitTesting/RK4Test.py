@@ -83,7 +83,7 @@ for step in range(1, noOfSteps):
     t = dt*step
     state = rk4.timeStep(step, state, dt)
     if stallMonitor.isStateStall(state) == True: 
-        print("STALL")
+       # print("STALL")
         stalledFlag = True 
     print("Time:", t, "SSV:", state)
 

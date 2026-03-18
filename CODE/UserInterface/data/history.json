@@ -1,5 +1,375 @@
 [
   {
+    "uid": "79EECE9B",
+    "name": "aryan",
+    "created": "2026-02-12 20:59:41",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 0.0,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 0.0,
+    "trimResult": 1e-06,
+    "success": false,
+    "message": "Simulation crashed: sensors object must expose measure(...) or allSensorReadings(...)",
+    "config": {
+      "uid": "79EECE9B",
+      "name": "aryan",
+      "description": "",
+      "createdAt": "2026-02-12 20:59:41",
+      "simId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.0015230870989335428,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        },
+        {
+          "start": 0.0,
+          "end": 10.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.005178496136374046,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": "None",
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\79EECE9B.csv"
+  },
+  {
+    "uid": "1DE71123",
+    "name": "New Simulation",
+    "created": "2026-02-12 20:58:23",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 55.81840047544398,
+    "maxLiftToDrag": 2.3155908523993705,
+    "maxPitchRate": 126.39430245433239,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "1DE71123",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-02-12 20:58:23",
+      "simId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        },
+        {
+          "start": 0.0,
+          "end": 10.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\1DE71123.csv"
+  },
+  {
     "uid": "3E9D95F4",
     "name": "New Simulation",
     "created": "2026-02-05 14:31:39",

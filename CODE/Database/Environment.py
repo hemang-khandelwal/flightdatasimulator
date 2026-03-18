@@ -46,6 +46,7 @@ class ISA:
 
         self.data = cursor.fetchall() 
         
+        
         #print(data)
         return self.data 
     
