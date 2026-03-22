@@ -1,5 +1,4311 @@
 [
   {
+    "uid": "4E8A37F8",
+    "name": "New Simulation",
+    "created": "2026-03-22 00:02:37",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 65.51601279102962,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 9.002700825677397,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "4E8A37F8",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-22 00:02:37",
+      "simId": 79,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        },
+        "segmentSeconds": 1.0
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\4E8A37F8.csv",
+    "indexPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\4E8A37F8_index.csv"
+  },
+  {
+    "uid": "FCAEF914",
+    "name": "New Simulation",
+    "created": "2026-03-21 23:57:07",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 65.51601279102962,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 9.002700825677397,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "FCAEF914",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-21 23:57:07",
+      "simId": 78,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        },
+        "segmentSeconds": 1.0
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\FCAEF914.csv",
+    "indexPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\FCAEF914_index.csv"
+  },
+  {
+    "uid": "E99CA979",
+    "name": "New Simulation",
+    "created": "2026-03-21 23:40:28",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 65.51601279102962,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 9.002700825677397,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "E99CA979",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-21 23:40:28",
+      "simId": 77,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        },
+        "segmentSeconds": 1.0
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\E99CA979.csv",
+    "indexPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\E99CA979_index.csv"
+  },
+  {
+    "uid": "39615CB2",
+    "name": "jiannma",
+    "created": "2026-03-21 18:54:20",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 67.08761731663664,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 9.084392835868636,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "39615CB2",
+      "name": "jiannma",
+      "description": "hipixie",
+      "createdAt": "2026-03-21 18:54:20",
+      "simId": 76,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 0.001,
+          "elevator": 0.23,
+          "thrust": 500.0
+        },
+        {
+          "start": 0.001,
+          "end": 0.5,
+          "elevator": 0.12,
+          "thrust": 1000.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\39615CB2.csv"
+  },
+  {
+    "uid": "99B5B1F9",
+    "name": "New Simulation",
+    "created": "2026-03-21 18:46:16",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 67.08761731663664,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 9.084392835868636,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "99B5B1F9",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-21 18:46:16",
+      "simId": 74,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 0.001,
+          "elevator": 0.23,
+          "thrust": 500.0
+        },
+        {
+          "start": 0.001,
+          "end": 0.5,
+          "elevator": 0.12,
+          "thrust": 1000.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\99B5B1F9.csv"
+  },
+  {
+    "uid": "16245370",
+    "name": "New Simulation",
+    "created": "2026-03-21 16:18:27",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 65.51601279102962,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 9.002700825677397,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "16245370",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-21 16:18:27",
+      "simId": 73,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\16245370.csv"
+  },
+  {
+    "uid": "D2FA15D9",
+    "name": "New Simulation",
+    "created": "2026-03-21 16:13:48",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 65.51601279102962,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 9.002700825677397,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "D2FA15D9",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-21 16:13:48",
+      "simId": 72,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\D2FA15D9.csv"
+  },
+  {
+    "uid": "8A892D00",
+    "name": "New Simulation",
+    "created": "2026-03-21 16:04:58",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 65.51601279102962,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 9.002700825677397,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "8A892D00",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-21 16:04:58",
+      "simId": 71,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\8A892D00.csv"
+  },
+  {
+    "uid": "1A4CDED5",
+    "name": "TestingNewUI",
+    "created": "2026-03-21 15:58:14",
+    "aircraft": "Cessna 172",
+    "duration": 0.5,
+    "maxAirspeed": 0.0,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 0.0,
+    "trimResult": 1e-06,
+    "success": false,
+    "message": "Simulation crashed: sensors object must expose measure(...) or allSensorReadings(...)",
+    "config": {
+      "uid": "1A4CDED5",
+      "name": "TestingNewUI",
+      "description": "devtest ",
+      "createdAt": "2026-03-21 15:58:14",
+      "simId": 70,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 2,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.0015230870989335428,
+      "decayConstant": 1.0,
+      "dt": 0.001,
+      "timeEnd": 0.5,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 0.001,
+          "elevator": 1.2,
+          "thrust": 500.0
+        },
+        {
+          "start": 0.005,
+          "end": 0.1,
+          "elevator": 122.0,
+          "thrust": 200.0
+        },
+        {
+          "start": 0.1,
+          "end": 0.5,
+          "elevator": 23.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.005178496136374046,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": "None",
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\1A4CDED5.csv"
+  },
+  {
+    "uid": "A0CF99C9",
+    "name": "TestingNewUI",
+    "created": "2026-03-21 15:57:59",
+    "aircraft": "Cessna 172",
+    "duration": 0.5,
+    "maxAirspeed": 0.0,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 0.0,
+    "trimResult": 1e-06,
+    "success": false,
+    "message": "Simulation crashed: sensors object must expose measure(...) or allSensorReadings(...)",
+    "config": {
+      "uid": "A0CF99C9",
+      "name": "TestingNewUI",
+      "description": "devtest ",
+      "createdAt": "2026-03-21 15:57:59",
+      "simId": 69,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 2,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.0015230870989335428,
+      "decayConstant": 1.0,
+      "dt": 0.001,
+      "timeEnd": 0.5,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 0.001,
+          "elevator": 0.01,
+          "thrust": 500.0
+        },
+        {
+          "start": 0.005,
+          "end": 0.1,
+          "elevator": 0.42,
+          "thrust": 200.0
+        },
+        {
+          "start": 0.1,
+          "end": 0.5,
+          "elevator": 0.34,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.005178496136374046,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": "None",
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\A0CF99C9.csv"
+  },
+  {
+    "uid": "F135D701",
+    "name": "TestingNewUI",
+    "created": "2026-03-21 15:57:26",
+    "aircraft": "Cessna 172",
+    "duration": 0.5,
+    "maxAirspeed": 0.0,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 0.0,
+    "trimResult": 1e-06,
+    "success": false,
+    "message": "Simulation crashed: sensors object must expose measure(...) or allSensorReadings(...)",
+    "config": {
+      "uid": "F135D701",
+      "name": "TestingNewUI",
+      "description": "devtest ",
+      "createdAt": "2026-03-21 15:57:26",
+      "simId": 68,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 2,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.0015230870989335428,
+      "decayConstant": 1.0,
+      "dt": 0.001,
+      "timeEnd": 0.5,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 0.001,
+          "elevator": 0.01,
+          "thrust": 500.0
+        },
+        {
+          "start": 0.005,
+          "end": 0.1,
+          "elevator": 0.42,
+          "thrust": 200.0
+        },
+        {
+          "start": 0.1,
+          "end": 0.5,
+          "elevator": 0.34,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.005178496136374046,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": "None",
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\F135D701.csv"
+  },
+  {
+    "uid": "409C7C86",
+    "name": "TestingNewUI",
+    "created": "2026-03-21 15:55:41",
+    "aircraft": "Cessna 172",
+    "duration": 0.5,
+    "maxAirspeed": 67.08555419526735,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 361.39261392732845,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "409C7C86",
+      "name": "TestingNewUI",
+      "description": "devtest ",
+      "createdAt": "2026-03-21 15:55:41",
+      "simId": 67,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 2,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.001,
+      "timeEnd": 0.5,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 0.001,
+          "elevator": 1.2,
+          "thrust": 500.0
+        },
+        {
+          "start": 0.005,
+          "end": 0.1,
+          "elevator": 122.0,
+          "thrust": 200.0
+        },
+        {
+          "start": 0.1,
+          "end": 0.5,
+          "elevator": 23.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\409C7C86.csv"
+  },
+  {
+    "uid": "9C4E8E31",
+    "name": "TestingNewUI",
+    "created": "2026-03-21 15:47:21",
+    "aircraft": "Cessna 172",
+    "duration": 0.5,
+    "maxAirspeed": 67.08555419526735,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 361.39261392732845,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "9C4E8E31",
+      "name": "TestingNewUI",
+      "description": "devtest ",
+      "createdAt": "2026-03-21 15:47:21",
+      "simId": 66,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 2,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.001,
+      "timeEnd": 0.5,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 0.001,
+          "elevator": 1.2,
+          "thrust": 500.0
+        },
+        {
+          "start": 0.005,
+          "end": 0.1,
+          "elevator": 122.0,
+          "thrust": 200.0
+        },
+        {
+          "start": 0.1,
+          "end": 0.5,
+          "elevator": 23.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\9C4E8E31.csv"
+  },
+  {
+    "uid": "56D13731",
+    "name": "TestingNewUI",
+    "created": "2026-03-21 15:46:46",
+    "aircraft": "Cessna 172",
+    "duration": 0.5,
+    "maxAirspeed": 67.08555419526735,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 361.39261392732845,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "56D13731",
+      "name": "TestingNewUI",
+      "description": "devtest ",
+      "createdAt": "2026-03-21 15:46:46",
+      "simId": 65,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 2,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.001,
+      "timeEnd": 0.5,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 0.001,
+          "elevator": 1.2,
+          "thrust": 500.0
+        },
+        {
+          "start": 0.005,
+          "end": 0.1,
+          "elevator": 122.0,
+          "thrust": 200.0
+        },
+        {
+          "start": 0.1,
+          "end": 0.5,
+          "elevator": 23.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\56D13731.csv"
+  },
+  {
+    "uid": "CC596604",
+    "name": "TestingNewUI",
+    "created": "2026-03-21 15:45:56",
+    "aircraft": "Cessna 172",
+    "duration": 1000.0,
+    "maxAirspeed": 8.962022551877496e+68,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 3.895254189546837e+69,
+    "trimResult": 1e-06,
+    "success": false,
+    "message": "Simulation terminated due to divergence at time = 2.00",
+    "config": {
+      "uid": "CC596604",
+      "name": "TestingNewUI",
+      "description": "devtest ",
+      "createdAt": "2026-03-21 15:45:56",
+      "simId": 64,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 2,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 1.0,
+      "timeEnd": 1000.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        },
+        {
+          "start": 10.0,
+          "end": 500.0,
+          "elevator": 122.0,
+          "thrust": 500.0
+        },
+        {
+          "start": 500.0,
+          "end": 1000.0,
+          "elevator": 23.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\CC596604.csv"
+  },
+  {
+    "uid": "2784DC1D",
+    "name": "TestingNewUI",
+    "created": "2026-03-21 15:45:02",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 65.42785169043542,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 8.992322183931499,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "2784DC1D",
+      "name": "TestingNewUI",
+      "description": "devtest ",
+      "createdAt": "2026-03-21 15:45:02",
+      "simId": 63,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 2,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        },
+        {
+          "start": 10.0,
+          "end": 500.0,
+          "elevator": 122.0,
+          "thrust": 500.0
+        },
+        {
+          "start": 500.0,
+          "end": 1000.0,
+          "elevator": 23.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\2784DC1D.csv"
+  },
+  {
+    "uid": "2836D169",
+    "name": "New Simulation",
+    "created": "2026-03-21 15:41:33",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 65.51601279102962,
+    "maxLiftToDrag": 0.0,
+    "maxPitchRate": 9.002700825677397,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "2836D169",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-21 15:41:33",
+      "simId": 60,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\2836D169.csv"
+  },
+  {
+    "uid": "D87546AF",
+    "name": "hi",
+    "created": "2026-03-21 15:04:53",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 65.51601279102962,
+    "maxLiftToDrag": 2.2468720184213415,
+    "maxPitchRate": 9.002700825677397,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "D87546AF",
+      "name": "hi",
+      "description": "testingthesimulation",
+      "createdAt": "2026-03-21 15:04:53",
+      "simId": 56,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\D87546AF.csv"
+  },
+  {
+    "uid": "F96A0410",
+    "name": "New Simulation",
+    "created": "2026-03-21 01:41:18",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 65.51601279102962,
+    "maxLiftToDrag": 2.2468720184213415,
+    "maxPitchRate": 9.002700825677397,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "F96A0410",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-21 01:41:18",
+      "simId": 55,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\F96A0410.csv"
+  },
+  {
+    "uid": "2A17AE0D",
+    "name": "New Simulation",
+    "created": "2026-03-20 23:17:00",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 65.51601279102962,
+    "maxLiftToDrag": 2.363145975883415,
+    "maxPitchRate": 9.002700825677397,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "2A17AE0D",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-20 23:17:00",
+      "simId": 53,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\2A17AE0D.csv"
+  },
+  {
+    "uid": "112AC593",
+    "name": "New Simulation",
+    "created": "2026-03-20 22:57:27",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 66.99905315363662,
+    "maxLiftToDrag": 2.364992024774957,
+    "maxPitchRate": 11.251603210782488,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "112AC593",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-20 22:57:27",
+      "simId": 22,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\112AC593.csv"
+  },
+  {
+    "uid": "67DD90DD",
+    "name": "New Simulation",
+    "created": "2026-03-20 22:18:45",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 55.81840047544398,
+    "maxLiftToDrag": 2.3155908523993705,
+    "maxPitchRate": 126.39269098949741,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "67DD90DD",
+      "name": "New Simulation",
+      "description": "",
+      "createdAt": "2026-03-20 22:18:45",
+      "simId": 21,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 1,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\67DD90DD.csv"
+  },
+  {
+    "uid": "E5991A93",
+    "name": "taryn",
+    "created": "2026-03-20 18:20:50",
+    "aircraft": "Cessna 172",
+    "duration": 5.0,
+    "maxAirspeed": 55.97175558284797,
+    "maxLiftToDrag": 2.3294484876944375,
+    "maxPitchRate": 127.22211161228316,
+    "trimResult": 1e-06,
+    "success": true,
+    "message": "Simulation completed",
+    "config": {
+      "uid": "E5991A93",
+      "name": "taryn",
+      "description": "neek",
+      "createdAt": "2026-03-20 18:20:50",
+      "simId": 18,
+      "versionId": 1,
+      "environmentId": 1,
+      "weatherId": 2,
+      "aircraftId": 1,
+      "aircraftType": "Cessna 172",
+      "regimeId": 1,
+      "regressionDegree": 20,
+      "surfaceArea": 122.0,
+      "chord": 1.23,
+      "blendWidth": 0.08726646259971647,
+      "decayConstant": 1.0,
+      "dt": 0.01,
+      "timeEnd": 5.0,
+      "initialState": [
+        50.0,
+        -2.0,
+        0.05,
+        0.1,
+        0.0,
+        1000.0
+      ],
+      "controlMode": "scheduled",
+      "controlSchedule": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "elevator": 0.0,
+          "thrust": 500.0
+        },
+        {
+          "start": 5.0,
+          "end": 10.0,
+          "elevator": 0.0,
+          "thrust": -100.0
+        }
+      ],
+      "UseStall": true,
+      "criticalAoa": 0.29670597283903605,
+      "stallMargin": 0.95,
+      "kalman": {
+        "initialStateEstimate": [
+          50.0,
+          -2.0,
+          0.1,
+          1000.0
+        ],
+        "initialUncertainityEstimate": [
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.5,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.5,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.5
+          ]
+        ],
+        "processNoiseUncertainity": [
+          [
+            0.05,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.05,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.05,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.05
+          ]
+        ],
+        "sensorNoiseUncertainity": [
+          [
+            0.2,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.2,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        ]
+      },
+      "sensors": null,
+      "trimSolver": {
+        "dalpha": 0.0008726646259971648,
+        "de": 0.008726646259971648,
+        "toleration": 1e-06,
+        "maxIterations": 2000,
+        "alpha0Array": [
+          -0.08726646259971647,
+          -0.03490658503988659,
+          0.0,
+          0.03490658503988659,
+          0.08726646259971647,
+          0.13962634015954636,
+          0.20943951023931956
+        ],
+        "e0Array": [
+          -0.2617993877991494,
+          -0.17453292519943295,
+          -0.08726646259971647,
+          0.0,
+          0.08726646259971647,
+          0.17453292519943295,
+          0.2617993877991494
+        ],
+        "toleranceDuplicate": 2.0
+      },
+      "dataOutput": {
+        "recordRaw": true,
+        "recordKalman": true,
+        "variables": {
+          "u": true,
+          "w": true,
+          "q": true,
+          "theta": true,
+          "x": true,
+          "z": true,
+          "elevator": true,
+          "thrust": true,
+          "stall": true,
+          "estimate": true
+        }
+      }
+    },
+    "logPath": "C:\\Users\\Admin\\OneDrive\\Year 12-13 - ALevel\\Computer Science\\Coursework\\flightdatasim\\CODE\\UserInterface\\data\\E5991A93.csv"
+  },
+  {
     "uid": "79EECE9B",
     "name": "aryan",
     "created": "2026-02-12 20:59:41",

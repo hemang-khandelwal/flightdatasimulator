@@ -1,8 +1,9 @@
 import pyodbc
 
-class AircraftData: 
-    def __init__(self,SimID):
+class AircraftData:
+    def __init__(self, SimID=None, aircraft_id=None):
         self.SimID = SimID
+        self.aircraft_id = aircraft_id
 
         self.connectID = pyodbc.connect(
             "Driver={SQL Server};"          # Driver for MS SQL
@@ -11,8 +12,33 @@ class AircraftData:
             "Trusted_Connection=yes;"     
         )
 
-    def airfoilData(self, columnName):
+    @classmethod
+    def from_aircraft_id(cls, aircraft_id):
+        return cls(SimID=None, aircraft_id=aircraft_id)
+
+    @classmethod
+    def from_sim_id(cls, sim_id):
+        return cls(SimID=sim_id, aircraft_id=None)
+
+    def _safe_execute(self, query, params):
         cursor = self.connectID.cursor()
+        cursor.execute(query, params)
+        result = cursor.fetchone()
+        if result is None:
+            return None
+        return result[0]
+
+    def _airfoil_query(self, columnName):
+        if self.aircraft_id is not None:
+            query = f"""
+            SELECT AirfoilData.{columnName}
+            FROM Components
+            JOIN AirfoilData
+                ON AirfoilData.ComponentID = Components.ComponentID
+            WHERE Components.AircraftID = ?
+            """
+            return self._safe_execute(query, (self.aircraft_id,))
+
         query = f"""
             SELECT AirfoilData.{columnName}
             FROM Simulations
@@ -22,11 +48,13 @@ class AircraftData:
                 ON Components.AircraftID = Aircraft.AircraftID
             JOIN AirfoilData
                 ON AirfoilData.ComponentID = Components.ComponentID
-            WHERE SimID = ?
+            WHERE Simulations.SimID = ?
         """
-        cursor.execute(query, (self.SimID,))
-        return cursor.fetchval()
-    
+        return self._safe_execute(query, (self.SimID,))
+
+    def airfoilData(self, columnName):
+        return self._airfoil_query(columnName)
+
     def wingArea(self):
         return self.airfoilData("WingArea")
   
@@ -66,8 +94,17 @@ class AircraftData:
     def flapsDeflectionLimit(self):
         return self.airfoilData("FlapsDeflectionLimit")
     
-    def engineData(self, columnName):
-        cursor = self.connectID.cursor()
+    def _engine_query(self, columnName):
+        if self.aircraft_id is not None:
+            query = f"""
+            SELECT EngineData.{columnName}
+            FROM Components
+            JOIN EngineData
+                ON EngineData.ComponentID = Components.ComponentID
+            WHERE Components.AircraftID = ?
+            """
+            return self._safe_execute(query, (self.aircraft_id,))
+
         query = f"""
             SELECT EngineData.{columnName}
             FROM Simulations
@@ -77,10 +114,12 @@ class AircraftData:
                 ON Components.AircraftID = Aircraft.AircraftID
             JOIN EngineData
                 ON EngineData.ComponentID = Components.ComponentID
-            WHERE SimID = ?
+            WHERE Simulations.SimID = ?
         """
-        cursor.execute(query, (self.SimID,))
-        return cursor.fetchval()
+        return self._safe_execute(query, (self.SimID,))
+
+    def engineData(self, columnName):
+        return self._engine_query(columnName)
 
     def modelName(self):
         return self.engineData("ModelName")
@@ -109,19 +148,40 @@ class AircraftData:
     def propellerDiameter(self):
         return self.engineData("PropellerDiameter")
     
+    def _performance_query(self, columnName):
+        perf_tables = ["PerformanceData", "Performance", "Performance_Data"]
+
+        if self.aircraft_id is not None:
+            for table in perf_tables:
+                try:
+                    query = f"""
+                    SELECT [{table}].{columnName}
+                    FROM [{table}]
+                    WHERE [{table}].AircraftID = ?
+                    """
+                    return self._safe_execute(query, (self.aircraft_id,))
+                except pyodbc.ProgrammingError:
+                    continue
+            return None
+
+        for table in perf_tables:
+            try:
+                query = f"""
+                    SELECT [{table}].{columnName}
+                    FROM Simulations
+                    JOIN Aircraft
+                        ON Aircraft.AircraftID = Simulations.AircraftID
+                    JOIN [{table}]
+                        ON [{table}].AircraftID = Aircraft.AircraftID
+                    WHERE Simulations.SimID = ?
+                """
+                return self._safe_execute(query, (self.SimID,))
+            except pyodbc.ProgrammingError:
+                continue
+        return None
+
     def performanceData(self, columnName):
-        cursor = self.connectID.cursor()
-        query = f"""
-            SELECT PerformanceData.{columnName}
-            FROM Simulations
-            JOIN Aircraft
-                ON Aircraft.AircraftID = Simulations.AircraftID
-            JOIN PerformanceData
-                ON PerformanceData.AircraftID = Aircraft.AircraftID
-            WHERE SimID = ?
-        """
-        cursor.execute(query, (self.SimID,))
-        return cursor.fetchval()
+        return self._performance_query(columnName)
 
 
     def normalMaxTakeOffWeight(self):
@@ -157,8 +217,15 @@ class AircraftData:
     def sixtyRange(self):
         return self.performanceData("SixtyRange")
 
-    def geometryData(self, columnName):
-        cursor = self.connectID.cursor()
+    def _geometry_query(self, columnName):
+        if self.aircraft_id is not None:
+            query = f"""
+            SELECT Geometry.{columnName}
+            FROM Geometry
+            WHERE Geometry.AircraftID = ?
+            """
+            return self._safe_execute(query, (self.aircraft_id,))
+
         query = f"""
             SELECT Geometry.{columnName}
             FROM Simulations
@@ -166,10 +233,12 @@ class AircraftData:
                 ON Aircraft.AircraftID = Simulations.AircraftID
             JOIN Geometry
                 ON Geometry.AircraftID = Aircraft.AircraftID
-            WHERE SimID = ?
+            WHERE Simulations.SimID = ?
         """
-        cursor.execute(query, (self.SimID,))
-        return cursor.fetchval()
+        return self._safe_execute(query, (self.SimID,))
+
+    def geometryData(self, columnName):
+        return self._geometry_query(columnName)
 
     def length(self):
         return self.geometryData("Length")
@@ -182,8 +251,4 @@ class AircraftData:
 
     def wheelTrack(self):
         return self.geometryData("WheelTrack")
-        
 
-hi = AircraftData(1)
-
-print(hi.modelName())

@@ -1,10 +1,10 @@
-import numpy as np 
-import matplotlib.pyplot as plt
 import pyodbc
 
 class ISA:
-    def __init__(self,SimID):
+    def __init__(self, SimID=None, EnvironmentID=None, WeatherID=None):
         self.SimID = SimID
+        self.EnvironmentID = EnvironmentID
+        self.WeatherID = WeatherID
 
         self.connectID = pyodbc.connect(
             "Driver={SQL Server};"          # Driver for MS SQL
@@ -21,28 +21,46 @@ class ISA:
     def load(self):
         cursor = self.connectID.cursor() 
 
-        # SQL Query to get all the environmental data values depending on the EnvironmentID and WeatherID which is defined by SimID 
-        cursor.execute("""
-            SELECT 
-                ISAData.Elevation,
-                ISAData.Temperature,
-                ISAData.Pressure,
-                ISAData.RelativeDensity,
-                ISAData.KinematicViscosity,
-                ISAData.ThermalConductivity, 
-                ISAData.SpeedOfSound
+        if self.EnvironmentID is not None and self.WeatherID is not None:
+            cursor.execute("""
+                SELECT 
+                    ISAData.Elevation,
+                    ISAData.Temperature,
+                    ISAData.Pressure,
+                    ISAData.RelativeDensity,
+                    ISAData.KinematicViscosity,
+                    ISAData.ThermalConductivity, 
+                    ISAData.SpeedOfSound
+                FROM ISAData
+                WHERE ISAData.EnvironmentID = ?
+                  AND ISAData.WeatherID = ?
+                ORDER BY ISAData.Elevation;
+            """, (self.EnvironmentID, self.WeatherID))
+        elif self.SimID is not None:
+            # SQL Query to get all the environmental data values depending on the EnvironmentID and WeatherID which is defined by SimID 
+            cursor.execute("""
+                SELECT 
+                    ISAData.Elevation,
+                    ISAData.Temperature,
+                    ISAData.Pressure,
+                    ISAData.RelativeDensity,
+                    ISAData.KinematicViscosity,
+                    ISAData.ThermalConductivity, 
+                    ISAData.SpeedOfSound
 
-            FROM 
-                Simulations
+                FROM 
+                    Simulations
 
-            JOIN ISAData
-                ON ISAData.EnvironmentID = Simulations.EnvironmentID
-            AND ISAData.WeatherID  = Simulations.WeatherID
+                JOIN ISAData
+                    ON ISAData.EnvironmentID = Simulations.EnvironmentID
+                AND ISAData.WeatherID  = Simulations.WeatherID
 
-            WHERE Simulations.SimID = ?
-            ORDER BY ISAData.Elevation;
+                WHERE Simulations.SimID = ?
+                ORDER BY ISAData.Elevation;
 
-        """,(self.SimID))
+            """, (self.SimID,))
+        else:
+            raise ValueError("ISA requires either SimID or both EnvironmentID and WeatherID")
 
         self.data = cursor.fetchall() 
         
@@ -144,26 +162,5 @@ class ISA:
     def soundSpeed(self,elevation):
         speed = self.elevationDetails(elevation)
         return speed[6] 
-    
-
-
-isa = ISA(2)
-#row1,row2 = isa.elevationDetails(2001),isa.elevationDetails(2000)
-#print(row1)
-#print(row2)
-
-print(isa.density(2888.1))
-#print(isa.temperature(50000))
-#print(isa.temperature(28000))
-#print(isa.thermalConductivity(2000))
-
-
-
-
-
-
-
-        
-
 
 

@@ -2,17 +2,30 @@ import numpy as np
 # Space State Vector: [ u, w, q, theta, x, z ]
 
 class AircraftDynamics:
-    def __init__(self, environment, aeroModel, forces, controls): # Pass in Aircraft Module in later 
-        # Passing the objects into the class 
-    ######## Get these aircraft specific values from Aircraft Object later 
-        #self.aircraft = aircraft 
-        self.surfaceArea = 2 ## CHANGE, call this from aircraft database structure
-        self.chord = 1.12 ### CHANGE, call this from aircraft database structure 
+    def __init__(self, environment, aeroModel, forces, controls, aircraft_data=None):
+        self.aircraft_data = aircraft_data
+
+        if self.aircraft_data is not None:
+            wing_area = self.aircraft_data.wingArea()
+            if wing_area is not None:
+                self.surfaceArea = wing_area
+            else:
+                self.surfaceArea = forces.surfaceArea
+
+            chord_value = self.aircraft_data.aerodynamicChord()
+            if chord_value is not None:
+                self.chord = chord_value
+            else:
+                self.chord = forces.chord
+        else:
+            self.surfaceArea = forces.surfaceArea
+            self.chord = forces.chord
+
         self.cmDeltaE = -1.28
         self.cdDeltaE = 0.060
         self.clDeltaE = 0.430
         self.cmq = -12.4
-    ##############
+
         self.environment = environment
         self.aeroModel = aeroModel
         self.forces = forces 
@@ -26,9 +39,11 @@ class AircraftDynamics:
         # Theta = pitch 
 
         resultantV = np.sqrt(u**2 + w**2)
-        gamma = np.arctan2(w,u) # Gamma = Flight Path Angle 
+        resultantV = max(resultantV, 1e-3)  # avoid divide-by-zero instabilities
+        gamma = np.arctan2(w, u)  # Flight Path Angle
 
         aoa = theta - gamma
+        aoa = np.clip(aoa, np.deg2rad(-30), np.deg2rad(30))
 
         L,D,M = self.forces.aeroForces(
             self.environment.density(z), # The vertical height(Z) is the elevation 

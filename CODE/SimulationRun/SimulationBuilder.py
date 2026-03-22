@@ -1,4 +1,5 @@
 import numpy as np
+from Database.AircraftData import AircraftData
 from Database.BaseAeroModel import AeroModel
 from Database.Environment import ISA
 from Mechanics.Forces import Forces
@@ -22,10 +23,16 @@ class SimulationBuilder:
         domain = {}
 
         # Build Environment
+        environment_id = config.get("environmentId") or config.get("EnvironmentID")
+        weather_id = config.get("weatherId") or config.get("WeatherID")
         sim_id = config.get("simId") or config.get("SimID")
-        if sim_id is None:
-            raise KeyError("config must provide 'simId' for ISA environment lookup")
-        environment = ISA(sim_id)
+
+        if environment_id is not None and weather_id is not None:
+            environment = ISA(EnvironmentID=environment_id, WeatherID=weather_id)
+        elif sim_id is not None:
+            environment = ISA(SimID=sim_id)
+        else:
+            raise KeyError("config must provide either 'simId' or both 'environmentId' and 'weatherId' for ISA lookup")
         domain["environment"] = environment
 
         # Build Aerodynamics Model
@@ -35,15 +42,26 @@ class SimulationBuilder:
         blend_width = config.get("blendWidth", np.deg2rad(5))
         decay_constant = config.get("decayConstant", 1.0)
 
+        # Use AircraftData module to get aircraft-specific geometry/performance values
+        aircraft_data = AircraftData.from_aircraft_id(aircraft_id)
+
+        surface_area = aircraft_data.wingArea()
+        if surface_area is None:
+            surface_area = config.get("surfaceArea")
+
+        chord = aircraft_data.aerodynamicChord()
+        if chord is None:
+            chord = config.get("chord")
+
+        if surface_area is None or chord is None:
+            raise KeyError("Aircraft data must provide 'wingArea' and 'aerodynamicChord' for Forces")
+
         base_aero = AeroModel(aircraft_id, regime_id, regression_degree)
         aero = BlendedAeroModel(base_aero, blend_width, decay_constant)
         domain["aero"] = aero
+        domain["aircraft_data"] = aircraft_data
 
         # Build Forces
-        surface_area = config.get("surfaceArea")
-        chord = config.get("chord")
-        if surface_area is None or chord is None:
-            raise KeyError("config must provide 'surfaceArea' and 'chord' for Forces")
         forces = Forces(aero, surface_area, chord)
         domain["forces"] = forces
 
@@ -63,7 +81,7 @@ class SimulationBuilder:
         domain["controls"] = controls
 
         # Build dynamics + integrator
-        dynamics = AircraftDynamics(environment, aero, forces, controls)
+        dynamics = AircraftDynamics(environment, aero, forces, controls, aircraft_data=aircraft_data)
         integrator = RK4(dynamics)
         domain["integrator"] = integrator
 
